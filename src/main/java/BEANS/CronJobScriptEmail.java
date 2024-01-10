@@ -65,7 +65,7 @@ public class CronJobScriptEmail {
                     "\n" +
                     "Veuillez prendre un moment pour partager votre humeur actuelle en cliquant sur le lien ci-dessous : :\n" +
                     "\n" +
-                    " http://localhost:8080/GestionTempsTravail/Servlets.Mood?id="+IdEmployee+" \n" +
+                    " http://localhost:3000/mood?id="+IdEmployee+" \n" +
                     "\n" +
                     "Nous vous remercions par avance pour votre contribution. Votre contrubution est essentielle pour nous aider à faire de notre entreprise un endroit où chacun se sent valorisé et épanoui.\n" +
                     "\n" +

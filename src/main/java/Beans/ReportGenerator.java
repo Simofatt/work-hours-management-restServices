@@ -60,7 +60,7 @@ public class ReportGenerator {
         int totalBreakTime = 0;
         double suppHours = 0;
         String formattedDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        String path = "/Users/mac/Desktop/gestion_test_/GestionTempsTravail/src/main/java/Shared/Reports/WeeklyReport" + idEmployee + formattedDate + ".pdf";
+        String path = "C:\\Users\\Simofatt\\IdeaProjects\\GestionTempsTravail\\src\\main\\java\\Shared\\Reports\\WeeklyReport" + idEmployee + formattedDate + ".pdf";
 
         // Creating a path to the pdf
         String imagePath = "";

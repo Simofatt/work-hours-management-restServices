@@ -41,10 +41,10 @@ public class WorkHoursService implements IWorkHoursService {
             }
             if(object.endTime != null) {
                 if(!checkEndWork(object.idEmployee)) {
-                    statement = conn.prepareStatement("UPDATE times SET end_time =? where  id_employee=? AND date=?");
-                    statement.setTime(1, object.endTime);
-                    statement.setInt(2, object.idEmployee);
-                    statement.setDate(3, sqlDate);
+                    statement = conn.prepareStatement("INSERT INTO times (date, end_time,id_employee) VALUES(?,?,?)"); //Statement.RETURN_GENERATED_KEYS);
+                    statement.setDate(1, sqlDate);
+                    statement.setTime(2, object.endTime);
+                    statement.setInt(3, object.idEmployee);
                     statement.executeUpdate();
                 }
                 /*else {
@@ -63,7 +63,7 @@ public class WorkHoursService implements IWorkHoursService {
 
 
 
-    public boolean checkStartWork (int idEmployee) throws Exception {
+    public boolean  checkStartWork (int idEmployee) throws Exception {
 
         if (conn == null) {
             conn = Driver.driver();
@@ -75,11 +75,10 @@ public class WorkHoursService implements IWorkHoursService {
         PreparedStatement preparedStatement2 = conn.prepareStatement("SELECT * FROM times WHERE date = ? and id_employee =?");
         preparedStatement2.setDate(1, sqlDate);
         preparedStatement2.setInt(2,idEmployee);
-         resultat = preparedStatement2.executeQuery();
-        if(resultat.next()) {
-            return true ;
-        }
-        return false ;
+        ResultSet resultSet = preparedStatement2.executeQuery();
+
+        return resultSet.next();
+
     }
 
     public boolean checkEndWork (int idEmployee) throws Exception {

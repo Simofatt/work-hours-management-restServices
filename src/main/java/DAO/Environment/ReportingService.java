@@ -26,8 +26,8 @@ public class ReportingService implements IReportingService {
 
         if (conn == null) {conn = Driver.driver();}
         statement = conn.prepareStatement("INSERT INTO reports (Date, id_employee) VALUES (?,?)");
-        statement.setInt(1, idEmployee);
-        statement.setDate(2, sqlDate);
+        statement.setInt(2, idEmployee);
+        statement.setDate(1, sqlDate);
 
         statement.executeUpdate();
     }

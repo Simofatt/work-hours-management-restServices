@@ -21,7 +21,7 @@ public class PdfDownloadServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id =parseInt(request.getParameter("id"));
         String formattedDate = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        String filePath = "C:\\Users\\Simofatt\\IdeaProjects\\GestionTempsTravail\\src\\main\\java\\Shared\\Reports\\WeeklyReport"+id+"2023-11-01.pdf";
+        String filePath = "C:\\Users\\Simofatt\\IdeaProjects\\GestionTempsTravail\\src\\main\\java\\Shared\\Reports\\WeeklyReport"+id+formattedDate+".pdf";
 
         File file = new File(filePath);
         FileInputStream fis = new FileInputStream(file);
